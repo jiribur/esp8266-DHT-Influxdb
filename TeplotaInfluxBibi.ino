@@ -1,7 +1,8 @@
-// Credits: http://cactusprojects.com/esp8266-logging-to-influxdb/ and https://github.com/G6EJD
-
+// Credits: http://cactusprojects.com/esp8266-logging-to-influxdb
+// Credits: https://github.com/adafruit/DHT-sensor-library/blob/master/examples/DHTtester
+// Credits: https://github.com/G6EJD 
 // Pozn. WeMos D1 R1, EspBoards 2.7.4.
-// Nastudovat nejaky sleep ...
+// Nastudovat nejaky sleep ... a osetrit chyby ci nestandardni situace, ...
 
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
