@@ -17,7 +17,6 @@
 #define WIFI_PASS "xxxxxxx"        //Enter Password of your WIFI Access Point
 #define INFLUXDB_HOST "xxx.xxx.xxx.xxx"     //Enter IP of device running Influx Database
 #define INFLUXDB_DATABASENAME "xnejakexx"   //Influxdb name, musí se nejprve vytovorit
-#define INFLUXDB_DEVICENAME "BibinaBunny" //Friendly device name ... pokud jich bude casem vice
 float TKorekce = -3.9;                    // Korekce meho teplotniho snimace protoze nejak dodelava
 
 DHT dht(DHTPIN, DHTTYPE);                  // Initialize DHT sensor.
@@ -87,12 +86,12 @@ void loop() {
   Serial.println(loopCount);
   
  InfluxData row("data");   // Prepare row for InfluxDB
-  row.addTag("Device", INFLUXDB_DEVICENAME);
+  //row.addTag("Device", "bibibunnyesp");
   row.addValue("Humidity", h); 
   row.addValue("Temperature", t); 
   // row.addTag("Unit", "Celsius");
   row.addValue("HeatIndex", hic); 
-  // row.addValue("LoopCount", loopCount);  
+  row.addValue("LoopCount", loopCount);  
   // row.addValue("RandomValue", random(10, 40));   // jen pro testovani
  influx.write(row);     // Write to InfluxDB
   
